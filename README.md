@@ -24,6 +24,24 @@ Se documentaron las transformaciones y decisiones técnicas mediante Lenguaje M 
 
 Archivo PBIX: `M6/Pipeline_ETL_Russo_Maria_Sol.pbix`
 
+## M7 - Boceto del Dashboard RetailPro
+
+Diseño del boceto del dashboard de RetailPro, definiendo el propósito, la pregunta de análisis y la distribución de los elementos visuales según el patrón de lectura en Z.
+
+El dashboard se orienta a identificar diferencias en las ventas de las categorías de productos entre los canales Online y Presencial.
+
+La propuesta incluye 4 KPIs principales, un gráfico de líneas para la evolución mensual, un gráfico de barras agrupadas para la comparación por categoría y una matriz de detalle por producto y canal.
+
+## M8 - Modelo de datos y medidas DAX
+
+Construcción del modelo analítico en Power BI a partir del pipeline ETL desarrollado en M6.
+
+Incluye la configuración de un esquema en estrella con relaciones 1:N activas y de dirección única entre las tablas de dimensiones y `Fact_Ventas`, la creación de `Dim_Fechas` como tabla calendario y la creación de la tabla `_Medidas` con cinco medidas DAX core.
+
+Las medidas implementadas son `Total Ventas`, `Ventas Online`, `Ventas YTD`, `Ventas LY` y `% Crecimiento Anual`, utilizando `SUM`, `CALCULATE`, inteligencia de tiempo, `VAR` y `DIVIDE`.
+
+Archivo PBIX: `M8/Russo_Maria_Sol_Checkpoint2.pbix`
+
 ## Cómo ejecutar
 
 **Motor:** SQL Server.
