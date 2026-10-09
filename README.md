@@ -1,52 +1,91 @@
 RetailPro - Data Analyst
 
-Proyecto de análisis de datos desarrollado durante el curso de Data Analyst de CoderHouse.
+Proyecto de análisis de datos desarrollado para RetailPro, una empresa distribuidora de tecnología, en el marco del curso de Data Analyst de CoderHouse.
 
-## M3 - Base de datos
+El repositorio documenta las distintas etapas del proyecto, desde la creación de una base de datos relacional y el desarrollo de consultas SQL hasta la preparación de datos mediante ETL, el diseño conceptual de un dashboard ejecutivo y el modelado analítico en Power BI.
 
-Creación de la base de datos `Ventas_Tech_DB`, definición de tablas, claves y restricciones, y carga de datos iniciales.
+Herramientas y tecnologías utilizadas
 
-## M4 - Consultas de negocio
+SQL Server: creación y gestión de la base de datos, y ejecución de consultas SQL.
 
-Desarrollo de consultas SQL para obtener métricas de ventas, ranking de productos, clientes recurrentes y comparación de facturación mensual.
+Power BI: preparación, modelado y análisis de datos.
 
-## M5 - Consultas con JOINs
+Power Query y Lenguaje M: transformación y limpieza de datos mediante un pipeline ETL.
 
-Cruce de tablas mediante `INNER JOIN`, `LEFT JOIN` y `UNION ALL` para enriquecer el análisis de ventas e identificar clientes y productos sin movimientos.
+DAX: creación de medidas para el análisis de ventas y la inteligencia de tiempo.
 
-## M6 - Pipeline ETL con Power Query y M
+Estructura del proyecto por etapas
 
-Construcción de un pipeline ETL en Power BI a partir del dataset `Pipeline_ETL_Dataset.xlsx`.
+M3 - Base de datos
 
-Incluye perfilado y limpieza de datos, resolución de duplicados y valores nulos, estandarización de tipos de datos y nomenclatura, y enriquecimiento de `Fact_Ventas` mediante un Merge con `Dim_Productos`.
+Creación de la base de datos Ventas_Tech_DB.
 
-Se documentaron las transformaciones y decisiones técnicas mediante Lenguaje M en Power Query.
+Definición de tablas, claves primarias, claves foráneas y restricciones.
 
-Archivo PBIX: `M6/Pipeline_ETL_Russo_Maria_Sol.pbix`
+Carga de datos iniciales.
 
-## M7 - Boceto del Dashboard RetailPro
+M4 - Consultas de negocio
 
-Diseño del boceto del dashboard de RetailPro, definiendo el propósito, la pregunta de análisis y la distribución de los elementos visuales según el patrón de lectura en Z.
+Desarrollo de consultas SQL para obtener métricas de ventas.
 
-El dashboard se orienta a identificar diferencias en las ventas de las categorías de productos entre los canales Online y Presencial.
+Generación de rankings de productos y análisis de clientes recurrentes.
 
-La propuesta incluye 4 KPIs principales, un gráfico de líneas para la evolución mensual, un gráfico de barras agrupadas para la comparación por categoría y una matriz de detalle por producto y canal.
+Comparación de la facturación mensual con el promedio del período.
 
-## M8 - Modelo de datos y medidas DAX
+M5 - Consultas con JOINs
+
+Cruce de información mediante INNER JOIN y LEFT JOIN.
+
+Uso de UNION ALL para consolidar resultados.
+
+Identificación de clientes y productos sin ventas registradas.
+
+M6 - Pipeline ETL con Power Query y M
+
+Construcción de un pipeline ETL en Power BI a partir del dataset Pipeline_ETL_Dataset.xlsx.
+
+Perfilado y limpieza de datos, tratamiento de duplicados y valores nulos.
+
+Estandarización de tipos de datos y nomenclatura.
+
+Enriquecimiento de Fact_Ventas mediante un Merge con Dim_Productos.
+
+Documentación de transformaciones y decisiones técnicas mediante Lenguaje M.
+
+Archivo PBIX: M6/Pipeline_ETL_Russo_Maria_Sol.pbix
+
+M7 - Boceto del Dashboard RetailPro
+
+Diseño conceptual del dashboard ejecutivo para analizar diferencias de ventas entre los canales Online y Presencial según la categoría de productos.
+
+Definición del propósito, la pregunta de análisis y la distribución de los elementos visuales según el patrón de lectura en Z.
+
+Propuesta de cuatro KPIs principales, un gráfico de líneas para la evolución mensual, un gráfico de barras agrupadas por categoría y una matriz de detalle por producto y canal.
+
+M8 - Modelo de datos y medidas DAX
 
 Construcción del modelo analítico en Power BI a partir del pipeline ETL desarrollado en M6.
 
-Incluye la configuración de un esquema en estrella con relaciones 1:N activas y de dirección única entre las tablas de dimensiones y `Fact_Ventas`, la creación de `Dim_Fechas` como tabla calendario y la creación de la tabla `_Medidas` con cinco medidas DAX core.
+Configuración de relaciones 1 activas y de dirección única entre Dim_Clientes, Dim_Productos y Dim_Fechas con Fact_Ventas, y entre Dim_Categorias y Dim_Productos.
 
-Las medidas implementadas son `Total Ventas`, `Ventas Online`, `Ventas YTD`, `Ventas LY` y `% Crecimiento Anual`, utilizando `SUM`, `CALCULATE`, inteligencia de tiempo, `VAR` y `DIVIDE`.
+Creación de Dim_Fechas como tabla calendario y de la tabla _Medidas.
 
-Archivo PBIX: `M8/Russo_Maria_Sol_Checkpoint2.pbix`
+Implementación de cinco medidas DAX: Total Ventas, Ventas Online, Ventas YTD, Ventas LY y % Crecimiento Anual.
 
-## Cómo ejecutar
+Aplicación de funciones como SUM, CALCULATE, funciones de inteligencia de tiempo, VAR y DIVIDE.
 
-**Motor:** SQL Server.
+Archivo PBIX: M8/Russo_Maria_Sol_Checkpoint2.pbix
 
-1. Ejecutar el script de M3 para crear la base de datos `Ventas_Tech_DB` y cargar los datos iniciales.
-2. Ejecutar el script de M4 sobre la base de datos `Ventas_Tech_DB`.
-3. Ejecutar el script de M5 sobre la misma base de datos.
-4. Los scripts deben ejecutarse en orden: M3 → M4 → M5.
+Cómo ejecutar los scripts SQL
+
+Motor de base de datos: SQL Server.
+
+Para crear la base de datos y ejecutar las consultas analíticas, seguir este orden:
+
+Ejecutar el script de M3 para crear Ventas_Tech_DB, definir las tablas y cargar los datos iniciales.
+
+Ejecutar el script de M4 sobre la base de datos Ventas_Tech_DB para incorporar los registros adicionales y realizar las consultas de negocio.
+
+Ejecutar el script de M5 sobre la misma base de datos para realizar las consultas con JOINs y las demás operaciones incluidas en esa etapa.
+
+Los scripts SQL deben ejecutarse en orden: M3 → M4 → M5.
